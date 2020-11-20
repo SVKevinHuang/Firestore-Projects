@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+
+    <ul id="todos">
+
+    </ul>
+
+    <!-- The below should be copied over from the firebase setup page -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-analytics.js"></script>
+
+    <!-- This line needs to be added manually -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-firestore.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBRh7yNmkd5q-jZ3HzULJqxc2SjuXrYiPU",
+        authDomain: "testnov19-841f6.firebaseapp.com",
+        databaseURL: "https://testnov19-841f6.firebaseio.com",
+        projectId: "testnov19-841f6",
+        storageBucket: "testnov19-841f6.appspot.com",
+        messagingSenderId: "381255299067",
+        appId: "1:381255299067:web:118e672d07c1a59d7b255e",
+        measurementId: "G-1MQKYYHVTT"
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

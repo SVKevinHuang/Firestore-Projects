@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", event => {
   const db = firebase.firestore();
   const todoRef = db.collection('todos');
 
+  console.log("Your items");
+
   todoRef.get().then(todos => {
     todos.forEach(doc => {
       data = doc.data();
-      document.write(`${data.title}<br>`);
+      console.log(data.title);
     })
   })
 })

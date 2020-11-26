@@ -16,3 +16,12 @@ document.addEventListener("DOMContentLoaded", event => {
     })
   })
 })
+
+//using listener instead of onSubmit to prevent default (page refresh)
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  newTodoTitle = document.getElementById("input").value;
+  const db = firebase.firestore();
+  const todoRef = db.collection('todos');
+  todoRef.add({title : newTodoTitle});
+});

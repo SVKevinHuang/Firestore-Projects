@@ -22,6 +22,8 @@ if (!firebase.apps.length) {
 
 function App() {
   const [firebaseText, setFirebaseText] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
 
   firebase.firestore().collection("memo").doc("test").get().then(doc => {
     console.log(doc.data());
@@ -34,6 +36,15 @@ function App() {
         <p>
           {firebaseText}
         </p>
+        <form onSubmit = {(e) => {
+          //Puts data on firebase
+          e.preventDefault();
+          firebase.firestore().collection("memo").doc("test").set({
+            text: inputValue
+          })
+        }}>
+          <input value={inputValue} onChange={(e) => {setInputValue(e.target.value);}}/>
+        </form>
       </header>
     </div>
   );

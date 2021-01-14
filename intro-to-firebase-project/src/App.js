@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -20,20 +20,19 @@ if (!firebase.apps.length) {
 }
 
 function App() {
-  const [firebaseText, setFirebaseText] = useState("");
   const [inputValue, setInputValue] = useState("");
 
-  firebase.firestore().collection("memo").doc("test").get().then(doc => {
-    console.log(doc.data());
-    setFirebaseText(doc.data().text);
-  })
+  useEffect(() => {
+    firebase.firestore().collection("memo").doc("test").get().then(doc => {
+      console.log(doc.data());
+      setInputValue(doc.data().text);
+    })
+  }, [])
+
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {firebaseText}
-        </p>
         <form onSubmit = {(e) => {
           //Puts data on firebase
           e.preventDefault();

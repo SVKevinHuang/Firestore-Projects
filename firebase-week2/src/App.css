@@ -50,12 +50,12 @@
 
 .todoList > li > *{
   display: inline-block;
-  margin: 10px 5px;
+  margin: 0px 5px;
 }
 
 .todoList button{
-  height: 35px;
-  width: 35px;
+  height: 2rem;
+  width: 2rem;
   background-color: black;
   border: 0;
   border-radius: 50%;

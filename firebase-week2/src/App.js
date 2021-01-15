@@ -24,7 +24,12 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    firebase.firestore().collection("todos").get().then(snapshot => {
+    //.where()
+    //.orderBy()
+    //.limit()
+
+    // firebase.firestore().collection("todos").get().then(snapshot => {
+    firebase.firestore().collection("todos").orderBy("createdAt", "asc").get().then(snapshot => {
       const newTodos = [];
       snapshot.docs.map((doc) => {
         newTodos.push({
@@ -43,6 +48,7 @@ function App() {
     //Puts data on firebase
     e.preventDefault();
     firebase.firestore().collection("todos").add({
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       title: inputValue
     })
   };
